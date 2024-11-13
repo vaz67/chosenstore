@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Feminino</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="selectedSubcategory" (ionChange)="filterProducts($event.detail.value)">
+    <ion-segment-button value="streetwear">Streetwear</ion-segment-button>
+    <ion-segment-button value="christian">Christian</ion-segment-button>
+    <ion-segment-button value="custom">Ao Pedido</ion-segment-button>
+    <ion-segment-button value="animes">Animes</ion-segment-button>
+  </ion-segment>
+
+  <ion-list>
+    <ion-item *ngFor="let product of filteredProducts" (click)="viewProductDetails(product.id)">
+      <ion-label>{{ product.name }} - R$ {{ product.price }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
